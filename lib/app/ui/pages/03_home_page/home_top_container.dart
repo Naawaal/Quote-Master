@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quote_master/app/data/api/random_quote_api.dart';
+import 'package:quote_master/app/ui/pages/03_home_page/home_page_stack_container.dart';
 
 import '../../../controllers/03_random_quote_controller/random_quote_controller.dart';
 
@@ -61,9 +62,7 @@ class _HomeTopContainerState extends State<HomeTopContainer> {
               Container(
                 alignment: Alignment.topLeft,
                 width: Get.width,
-                height: 220,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                padding: const EdgeInsets.only(bottom: 50, left: 10, right: 10),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     begin: Alignment.topRight,
@@ -83,61 +82,45 @@ class _HomeTopContainerState extends State<HomeTopContainer> {
                   ],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: ListTile(
-                  title: Obx(() {
-                    return Text(
-                      "${randomQuoteController.randomQuoteApiTag.value} :",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  }),
-                  subtitle: Obx(() {
-                    return Text(
-                      "❛ ${randomQuoteController.randomQuoteApiContent.value} ❜",
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    ).paddingAll(6);
-                  }),
-                ),
-              ).marginOnly(left: 5, right: 5),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.copy_all_outlined,
-                        color: Color(0xffff786e),
-                      ),
+                    ListTile(
+                      title: Obx(() {
+                        return Text(
+                          "${randomQuoteController.randomQuoteApiTag.value} :",
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        );
+                      }),
+                      subtitle: Obx(() {
+                        return Text(
+                          randomQuoteController.randomQuoteApiContent.value,
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ).paddingAll(6);
+                      }),
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.download_outlined,
-                        color: Color(0xffff5f6d),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.share_outlined,
-                        color: Color(0xffff786e),
-                      ),
+                    Obx(
+                      () => Text(
+                        "Aurthur: ${randomQuoteController.randomQuoteApiAuthor}",
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      ).paddingOnly(left: 20, bottom: 15),
                     ),
                   ],
                 ),
-              ).paddingSymmetric(vertical: 10, horizontal: 10),
+              ).marginOnly(left: 5, right: 5),
+              const HomepageStackContainer(),
             ],
           ),
         ],

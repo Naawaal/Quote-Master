@@ -23,6 +23,10 @@ class RandomQuoteApi {
           randomQuoteModel.content;
 
       randomQuoteController.randomQuoteApiTag.value = randomQuoteModel.tags[0];
+
+      randomQuoteController.randomQuoteApiAuthor.value =
+          randomQuoteModel.author;
+
       return randomQuoteModel;
     } else {
       throw Exception("Failed to load quotes");
