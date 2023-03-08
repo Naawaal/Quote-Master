@@ -14,7 +14,7 @@ class LoginButtomText extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "I'm a new user ? ",
+            "I'm a new user ?",
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),

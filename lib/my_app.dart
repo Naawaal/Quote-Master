@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: FontsConst.appThemeFont,
+        primarySwatch: Colors.teal,
       ),
       getPages: Routes.appRoutes(),
     );

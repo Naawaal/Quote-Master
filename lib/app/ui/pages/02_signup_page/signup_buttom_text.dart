@@ -14,31 +14,33 @@ class SignButtomText extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "I'm already a member ? ",
+            "I'm already a member ?",
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
-          Builder(builder: (context) {
-            return TextButton(
-              onPressed: () {
-                ShowLoadingUtil.showLoading(context);
-                Future.delayed(
-                  const Duration(milliseconds: 1000),
-                  () {
-                    Get.offNamed(RoutesName.loginScreen);
-                  },
-                );
-              },
-              child: const Text(
-                "Log in",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
+          Builder(
+            builder: (context) {
+              return TextButton(
+                onPressed: () {
+                  ShowLoadingUtil.showLoading(context);
+                  Future.delayed(
+                    const Duration(milliseconds: 1000),
+                    () {
+                      Get.offNamed(RoutesName.loginScreen);
+                    },
+                  );
+                },
+                child: const Text(
+                  "Log in",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                  ),
                 ),
-              ),
-            );
-          }),
+              );
+            },
+          ),
         ],
       ),
     );
