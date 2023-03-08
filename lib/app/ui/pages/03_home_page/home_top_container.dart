@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quote_master/app/data/api/random_quote_api.dart';
 
-class HomeTopContainer extends StatelessWidget {
+import '../../../controllers/03_random_quote_controller/random_quote_controller.dart';
+
+final randomQuoteController = Get.find<RandomQuoteController>();
+final RandomQuoteApi randomQuoteApi = RandomQuoteApi();
+
+class HomeTopContainer extends StatefulWidget {
   const HomeTopContainer({super.key});
+
+  @override
+  State<HomeTopContainer> createState() => _HomeTopContainerState();
+}
+
+class _HomeTopContainerState extends State<HomeTopContainer> {
+  @override
+  void initState() {
+    super.initState();
+    randomQuoteApi.getRandomQuoteApi();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +39,9 @@ class HomeTopContainer extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await randomQuoteApi.getRandomQuoteApi();
+                },
                 child: const Text(
                   'Next',
                   style: TextStyle(
@@ -59,23 +78,27 @@ class HomeTopContainer extends StatelessWidget {
               ],
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const ListTile(
-              title: Text(
-                'Motivational',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                "“I wake up every morning and think to myself, ‘How far can I push this company in the next 24 hours.’” —Leah Busque",
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                ),
-              ),
+            child: ListTile(
+              title: Obx(() {
+                return Text(
+                  "${randomQuoteController.randomQuoteApiTag.value} :",
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              }),
+              subtitle: Obx(() {
+                return Text(
+                  randomQuoteController.randomQuoteApiContent.value,
+                  textAlign: TextAlign.justify,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
+                );
+              }),
             ),
           ).marginOnly(left: 5, right: 5),
         ],
