@@ -55,52 +55,91 @@ class _HomeTopContainerState extends State<HomeTopContainer> {
           const SizedBox(
             height: 10,
           ),
-          Container(
-            alignment: Alignment.topLeft,
-            width: Get.width,
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.topLeft,
-                colors: [
-                  Color(0xffff856f),
-                  Color(0xffff9e70),
-                ],
-              ),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  spreadRadius: 5.0,
-                  blurRadius: 5,
-                  offset: Offset(1.5, 3),
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                alignment: Alignment.topLeft,
+                width: Get.width,
+                height: 220,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.topLeft,
+                    colors: [
+                      Color(0xffff856f),
+                      Color(0xffff9e70),
+                    ],
+                  ),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 5.0,
+                      blurRadius: 5,
+                      offset: Offset(1.5, 3),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(12),
                 ),
-              ],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: ListTile(
-              title: Obx(() {
-                return Text(
-                  "${randomQuoteController.randomQuoteApiTag.value} :",
-                  style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                );
-              }),
-              subtitle: Obx(() {
-                return Text(
-                  randomQuoteController.randomQuoteApiContent.value,
-                  textAlign: TextAlign.justify,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                  ),
-                );
-              }),
-            ),
-          ).marginOnly(left: 5, right: 5),
+                child: ListTile(
+                  title: Obx(() {
+                    return Text(
+                      "${randomQuoteController.randomQuoteApiTag.value} :",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+                  }),
+                  subtitle: Obx(() {
+                    return Text(
+                      "❛ ${randomQuoteController.randomQuoteApiContent.value} ❜",
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ).paddingAll(6);
+                  }),
+                ),
+              ).marginOnly(left: 5, right: 5),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.copy_all_outlined,
+                        color: Color(0xffff786e),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.download_outlined,
+                        color: Color(0xffff5f6d),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.share_outlined,
+                        color: Color(0xffff786e),
+                      ),
+                    ),
+                  ],
+                ),
+              ).paddingSymmetric(vertical: 10, horizontal: 10),
+            ],
+          ),
         ],
       ),
     );
