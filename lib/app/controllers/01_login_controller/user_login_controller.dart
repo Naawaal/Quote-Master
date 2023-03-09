@@ -30,7 +30,7 @@ class UserLoginController extends GetxController {
               email: email,
               password: password,
             );
-            Get.offNamed(RoutesName.homepageScreen);
+            Get.offNamed(RoutesName.navScreen);
           },
         );
       }

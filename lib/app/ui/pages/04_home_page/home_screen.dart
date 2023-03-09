@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quote_master/app/ui/pages/03_home_page/home_top_container.dart';
+import 'package:quote_master/app/ui/pages/04_home_page/home_top_container.dart';
 
 class HomepageScreen extends StatelessWidget {
   const HomepageScreen({super.key});

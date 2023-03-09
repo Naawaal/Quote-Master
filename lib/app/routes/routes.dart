@@ -5,7 +5,8 @@ import 'package:quote_master/app/bindings/03_random_quote_binding/random_quote_b
 import 'package:quote_master/app/routes/routes_name.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_screen.dart';
 import 'package:quote_master/app/ui/pages/02_signup_page/signup_screen.dart';
-import 'package:quote_master/app/ui/pages/03_home_page/home_screen.dart';
+import 'package:quote_master/app/ui/pages/03_nav_page/nav_scree.dart';
+import 'package:quote_master/app/ui/pages/04_home_page/home_screen.dart';
 
 class Routes {
   static appRoutes() => [
@@ -29,6 +30,12 @@ class Routes {
           title: 'Homepage Screen',
           transition: Transition.rightToLeft,
           binding: RandomQuoteBinding(),
+        ),
+        GetPage(
+          name: RoutesName.navScreen,
+          page: () => const NavScreen(),
+          title: 'Homepage Screen',
+          transition: Transition.rightToLeft,
         ),
       ];
 }

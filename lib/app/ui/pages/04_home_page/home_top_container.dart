@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quote_master/app/data/api/random_quote_api.dart';
-import 'package:quote_master/app/ui/pages/03_home_page/home_page_stack_container.dart';
+import 'package:quote_master/app/ui/pages/04_home_page/home_page_stack_container.dart';
 
 import '../../../controllers/03_random_quote_controller/random_quote_controller.dart';
 

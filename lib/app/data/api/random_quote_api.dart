@@ -10,7 +10,7 @@ class RandomQuoteApi {
   final apiEndPoint = "random";
 
   Future<RandomQuoteModel> getRandomQuoteApi() async {
-    final randomQuoteController = Get.find<RandomQuoteController>();
+    final randomQuoteController = Get.put(RandomQuoteController());
     final url = Uri.parse(apiBaseUrl + apiEndPoint);
 
     final getRandomQuoteApiResponse = await http.get(url);
