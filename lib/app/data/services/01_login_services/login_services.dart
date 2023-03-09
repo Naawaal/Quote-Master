@@ -8,7 +8,7 @@ class LoginService {
   void checkUserLoginOrNot() {
     final auth = FirebaseAuth.instance;
     if (auth.currentUser?.uid != null) {
-      Timer(100.milliseconds, () {
+      Timer(2.seconds, () {
         Get.offNamed(RoutesName.navScreen);
       });
     } else {

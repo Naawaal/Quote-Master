@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quote_master/app/data/services/01_login_services/login_services.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_buttom_text.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_button.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_form_filed.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_top_text.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  void initState() {
-    super.initState();
-    LoginService().checkUserLoginOrNot();
-  }
 
   @override
   Widget build(BuildContext context) {

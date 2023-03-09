@@ -3,6 +3,7 @@ import 'package:quote_master/app/bindings/01_login_binding/login_binding.dart';
 import 'package:quote_master/app/bindings/02_signup_binding/signup_binding.dart';
 import 'package:quote_master/app/bindings/03_random_quote_binding/random_quote_binding.dart';
 import 'package:quote_master/app/routes/routes_name.dart';
+import 'package:quote_master/app/ui/pages/00_splash_screen/splash_screen.dart';
 import 'package:quote_master/app/ui/pages/01_login_page/login_screen.dart';
 import 'package:quote_master/app/ui/pages/02_signup_page/signup_screen.dart';
 import 'package:quote_master/app/ui/pages/03_nav_page/nav_scree.dart';
@@ -10,6 +11,13 @@ import 'package:quote_master/app/ui/pages/04_home_page/home_screen.dart';
 
 class Routes {
   static appRoutes() => [
+        GetPage(
+          name: RoutesName.splashScreen,
+          page: () => const SplashScreen(),
+          title: 'Splash Screen',
+          transition: Transition.rightToLeft,
+          binding: LoginBinding(),
+        ),
         GetPage(
           name: RoutesName.loginScreen,
           page: () => const LoginScreen(),
@@ -34,7 +42,7 @@ class Routes {
         GetPage(
           name: RoutesName.navScreen,
           page: () => const NavScreen(),
-          title: 'Homepage Screen',
+          title: 'Nav Screen',
           transition: Transition.rightToLeft,
         ),
       ];

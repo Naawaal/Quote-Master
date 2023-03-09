@@ -31,38 +31,29 @@ class _NavScreenState extends State<NavScreen> {
         iconSize: 40,
         onTap: onTabTapped,
         currentIndex: _currentIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/png/dashboard.png',
-              width: 30,
-              height: 30,
-              fit: BoxFit.cover,
+            icon: Icon(
+              Icons.home_outlined,
+              color: Color(0xffff5f6d),
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/png/quotes.png',
-              width: 30,
-              height: 30,
-              fit: BoxFit.cover,
+            icon: Icon(
+              Icons.dashboard_outlined,
+              color: Color(0xffff5f6d),
             ),
             label: 'Quotes',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+              color: Color(0xffff5f6d),
+            ),
             label: 'Profile',
           ),
         ],
-        selectedLabelStyle: const TextStyle(
-          fontSize: 12,
-          color: Color(0xffF70000),
-        ),
-        unselectedLabelStyle: const TextStyle(
-          fontSize: 12,
-          color: Colors.black,
-        ),
       ),
     );
   }
