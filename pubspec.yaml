@@ -38,6 +38,8 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^4.0.3
   http: ^0.13.5
+  firebase_auth: ^4.2.10
+  firebase_core: ^2.7.1
 
 
 dev_dependencies:

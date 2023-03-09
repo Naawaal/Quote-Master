@@ -12,23 +12,37 @@ class LoginFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Obx(
-          () {
-            return TextformfiledWidget(
-              labelText: "Email ID",
-              icon: const Icon(Icons.email_outlined),
-              controller: userLoginController.emailController.value,
-            );
-          },
-        ),
+        Obx(() {
+          return TextformfiledWidget(
+            labelText: "Email ID",
+            icon: const Icon(Icons.email_outlined),
+            controller: userLoginController.emailController.value,
+            validator: (p0) {
+              if (GetUtils.isEmail(p0!)) {
+                return null;
+              } else {
+                return "Email is invalid";
+              }
+            },
+          );
+        }),
         const SizedBox(
           height: 15,
         ),
-        TextformfiledWidget(
-          labelText: "Password",
-          icon: const Icon(Icons.lock_outline),
-          controller: userLoginController.passwordController.value,
-        ),
+        Obx(() {
+          return TextformfiledWidget(
+            labelText: "Password",
+            icon: const Icon(Icons.lock_outline),
+            controller: userLoginController.passwordController.value,
+            validator: (p0) {
+              if (userLoginController.passwordController.value.text.length >=
+                  6) {
+                return null;
+              }
+              return "Enter valid password";
+            },
+          );
+        }),
         const SizedBox(
           height: 12,
         ),

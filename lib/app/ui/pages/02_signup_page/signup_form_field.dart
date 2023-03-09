@@ -7,27 +7,27 @@ class SignUpFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        SizedBox(
+      children: [
+        const SizedBox(
           height: 15,
         ),
         TextformfiledWidget(
           labelText: 'Username',
-          icon: Icon(Icons.person_2_outlined),
+          icon: const Icon(Icons.person_2_outlined),
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         TextformfiledWidget(
           labelText: 'Email ID',
-          icon: Icon(Icons.email_outlined),
+          icon: const Icon(Icons.email_outlined),
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         TextformfiledWidget(
           labelText: 'Password',
-          icon: Icon(Icons.lock_outline),
+          icon: const Icon(Icons.lock_outline),
         ),
       ],
     );
