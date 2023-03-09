@@ -14,7 +14,9 @@ class LoginButton extends StatelessWidget {
       height: 50,
       child: ButtonWidget(
         text: 'Login',
-        onPressed: () {},
+        onPressed: () {
+          userLoginController.userLoginController(context);
+        },
       ),
     );
   }

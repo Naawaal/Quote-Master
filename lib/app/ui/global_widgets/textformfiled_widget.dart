@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class TextformfiledWidget extends StatelessWidget {
   final String labelText;
+  @override
   final Widget icon;
   String? Function(String?)? validator;
   final TextEditingController? controller;
@@ -14,11 +15,10 @@ class TextformfiledWidget extends StatelessWidget {
     this.validator,
   });
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autocorrect: true,
       controller: controller,
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
