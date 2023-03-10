@@ -8,6 +8,6 @@ final kQuoteTextStyle = TextStyle(
 
 final kAuthorStyle = TextStyle(
   fontSize: 16,
-  color: Colors.white.withOpacity(0.95),
-  fontWeight: FontWeight.w400,
+  color: Colors.white.withOpacity(0.5),
+  fontWeight: FontWeight.normal,
 );

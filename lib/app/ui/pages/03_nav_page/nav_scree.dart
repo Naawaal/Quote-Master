@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quote_master/app/ui/pages/04_home_page/home_screen.dart';
 import 'package:quote_master/app/ui/pages/05_quote_page/quote_screen.dart';
 import 'package:quote_master/app/ui/pages/06_profile_screen/profile_screen.dart';
@@ -33,24 +34,18 @@ class _NavScreenState extends State<NavScreen> {
         currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              color: Color(0xffff5f6d),
-            ),
+            icon: FaIcon(FontAwesomeIcons.house, size: 30),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.dashboard_outlined,
-              color: Color(0xffff5f6d),
+            icon: FaIcon(
+              FontAwesomeIcons.quoteLeft,
+              size: 30,
             ),
             label: 'Quotes',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_outline,
-              color: Color(0xffff5f6d),
-            ),
+            icon: FaIcon(FontAwesomeIcons.user, size: 30),
             label: 'Profile',
           ),
         ],
