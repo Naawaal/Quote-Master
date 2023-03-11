@@ -13,8 +13,9 @@ final randomQuoteController = Get.find<RandomQuoteController>();
 final RandomQuoteApi randomQuoteApi = RandomQuoteApi();
 
 class CarouselBuilder extends StatelessWidget {
-  final Function(String)? onImageChnaged;
-  CarouselBuilder({super.key, this.onImageChnaged});
+  CarouselBuilder({
+    super.key,
+  });
 
   final unsplashApiController = Get.find<UnspalshApiController>();
 
@@ -26,18 +27,22 @@ class CarouselBuilder extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              randomQuoteController.randomQuoteApiContent.value,
-              textAlign: TextAlign.center,
-              style: kQuoteTextStyle,
-            ).paddingAll(12),
-            Obx(() {
-              return Text(
-                "Author: - ${randomQuoteController.randomQuoteApiAuthor} -",
+            Obx(
+              () => Text(
+                randomQuoteController.randomQuoteApiContent.value,
                 textAlign: TextAlign.center,
-                style: kAuthorStyle,
-              ).paddingAll(12);
-            }),
+                style: kQuoteTextStyle,
+              ).paddingAll(12),
+            ),
+            Obx(
+              () {
+                return Text(
+                  "Author: - ${randomQuoteController.randomQuoteApiAuthor} -",
+                  textAlign: TextAlign.center,
+                  style: kAuthorStyle,
+                ).paddingAll(12);
+              },
+            ),
           ],
         );
       },
@@ -47,7 +52,6 @@ class CarouselBuilder extends StatelessWidget {
         initialPage: 0,
         pageSnapping: true,
         enlargeCenterPage: true,
-        aspectRatio: 1.6,
         onPageChanged: (index, reason) async {
           unsplashApiController.index.value = index;
           await randomQuoteApi.getRandomQuoteApi();

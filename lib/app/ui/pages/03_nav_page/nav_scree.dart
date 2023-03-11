@@ -16,7 +16,7 @@ class _NavScreenState extends State<NavScreen> {
   int _currentIndex = 0;
   final List<Widget> children = [
     const HomepageScreen(),
-    const QuoteScreen(),
+    QuoteScreen(),
     const ProfileScreen(),
   ];
   void onTabTapped(int index) {
