@@ -25,7 +25,7 @@ class CarouselBuilder extends StatelessWidget {
       itemCount: quotesList.length,
       itemBuilder: (context, index, realIndex) {
         return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Obx(
               () => Text(

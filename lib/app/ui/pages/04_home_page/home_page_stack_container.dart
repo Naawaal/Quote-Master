@@ -1,5 +1,10 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:quote_master/app/controllers/03_random_quote_controller/random_quote_controller.dart';
+
+final randomQuoteController = Get.put(RandomQuoteController());
 
 class HomepageStackContainer extends StatelessWidget {
   const HomepageStackContainer({super.key});
@@ -15,7 +20,18 @@ class HomepageStackContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await FlutterClipboard.copy(
+                  randomQuoteController.randomQuoteApiContent.value +
+                      randomQuoteController.randomQuoteApiAuthor.value);
+              Fluttertoast.showToast(
+                msg: 'Copy to clipboard',
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16,
+                gravity: ToastGravity.CENTER,
+              );
+            },
             icon: const Icon(
               Icons.copy_all_outlined,
               color: Color(0xffff786e),
