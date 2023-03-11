@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quote_master/app/ui/pages/05_quote_page/carousel_builder.dart';
@@ -26,6 +28,8 @@ class _QuoteScreenState extends State<QuoteScreen> {
         children: [
           Obx(
             () {
+              final random = Random();
+              unsplashApiController.imageUrl.shuffle(random);
               return Container(
                 width: Get.width,
                 height: Get.height,
