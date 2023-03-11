@@ -49,6 +49,7 @@ class CarouselBuilder extends StatelessWidget {
         enlargeCenterPage: true,
         aspectRatio: 1.6,
         onPageChanged: (index, reason) async {
+          unsplashApiController.index.value = index;
           await randomQuoteApi.getRandomQuoteApi();
           HapticFeedback.lightImpact();
         },

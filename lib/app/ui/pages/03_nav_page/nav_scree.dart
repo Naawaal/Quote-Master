@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quote_master/app/ui/pages/04_home_page/home_screen.dart';
@@ -24,31 +25,31 @@ class _NavScreenState extends State<NavScreen> {
     });
   }
 
+  List<IconData> iconList = [
+    FontAwesomeIcons.house,
+    FontAwesomeIcons.quoteRight,
+    FontAwesomeIcons.user,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        iconSize: 40,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(FontAwesomeIcons.plus),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        leftCornerRadius: 18,
+        splashColor: Colors.orange,
+        activeColor: const Color(0xffff5f6d),
+        icons: iconList,
+        gapLocation: GapLocation.end,
+        activeIndex: _currentIndex,
         onTap: onTabTapped,
-        currentIndex: _currentIndex,
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house, size: 30),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.quoteLeft,
-              size: 30,
-            ),
-            label: 'Quotes',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.user, size: 30),
-            label: 'Profile',
-          ),
-        ],
+        notchSmoothness: NotchSmoothness.smoothEdge,
+        iconSize: 20,
       ),
     );
   }
