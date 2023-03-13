@@ -13,7 +13,7 @@ class SignupUserController extends GetxController {
   final emailController = TextEditingController().obs;
   final passwordControler = TextEditingController().obs;
 
-  void signupUserController(context) {
+  void signupUserController(context) async {
     final username = usernameContoller.value.text;
     final email = emailController.value.text;
     final password = passwordControler.value.text;
@@ -28,17 +28,17 @@ class SignupUserController extends GetxController {
         }
       } else {
         ShowLoadingUtil.showLoading(context);
+        await auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
         Future.delayed(
           3.milliseconds,
           () async {
-            await auth.createUserWithEmailAndPassword(
-              email: email,
-              password: password,
-            );
             await Get.offNamed(RoutesName.homepageScreen);
           },
         );
-        database.collection('users').doc().set(
+        database.collection('users').add(
           {
             'uid': auth.currentUser?.uid,
             'name': username,
