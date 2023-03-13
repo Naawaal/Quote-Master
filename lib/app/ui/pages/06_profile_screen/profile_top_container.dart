@@ -41,10 +41,12 @@ class _ProfileTopContainerState extends State<ProfileTopContainer> {
         ).marginSymmetric(vertical: 10),
         Column(
           children: [
-            Text(
-              "Name: ${profileController.userName.value}",
-              style: const TextStyle(
-                fontSize: 18,
+            Obx(
+              () => Text(
+                "Name: ${profileController.userName.value}",
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
             ),
             Text(
