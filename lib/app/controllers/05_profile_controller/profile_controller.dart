@@ -5,23 +5,17 @@ import 'package:get/get.dart';
 class ProfileController extends GetxController {
   RxString userName = "Loading".obs;
 
-  RxString documentId = "".obs;
-
   void getUserData() async {
     User? user = FirebaseAuth.instance.currentUser;
+
     if (user != null) {
-      String userUid = user.uid;
-      DocumentReference userDocRef =
-          FirebaseFirestore.instance.collection('users').doc(userUid);
-      DocumentSnapshot userDocSnapshot = await userDocRef.get();
-      if (userDocSnapshot.exists) {
-        String userDocId = userDocSnapshot.id;
-        print('User document ID: $userDocId');
-      } else {
-        print('User document does not exist!');
-      }
+      final userDocument = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(user.uid)
+          .get();
+      userName.value = userDocument.get("name");
     } else {
-      print('No user is currently signed in.');
+      userName.value = "No user found in our server";
     }
   }
 }

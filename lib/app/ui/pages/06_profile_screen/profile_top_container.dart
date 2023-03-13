@@ -53,7 +53,11 @@ class _ProfileTopContainerState extends State<ProfileTopContainer> {
                 fontSize: 14,
               ),
             ),
-            const Divider().marginOnly(left: 5, right: 5),
+            const Divider().marginOnly(
+              top: 5,
+              left: 5,
+              right: 5,
+            ),
           ],
         )
       ],

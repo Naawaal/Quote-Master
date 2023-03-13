@@ -38,7 +38,7 @@ class SignupUserController extends GetxController {
             await Get.offNamed(RoutesName.homepageScreen);
           },
         );
-        database.collection('users').add(
+        database.collection('users').doc(auth.currentUser?.uid).set(
           {
             'uid': auth.currentUser?.uid,
             'name': username,
