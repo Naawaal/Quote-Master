@@ -38,7 +38,7 @@ class HomepageStackContainer extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {},
             icon: const Icon(
               Icons.download_outlined,
               color: Color(0xffff5f6d),

@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Get.changeThemeMode(isDark ? ThemeMode.light : ThemeMode.dark);
+              Get.changeTheme(isDark ? ThemeData.light() : ThemeData.dark());
             },
             icon: Icon(isDark ? FontAwesomeIcons.sun : FontAwesomeIcons.moon),
           ),
