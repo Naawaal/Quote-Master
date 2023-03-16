@@ -32,12 +32,18 @@ class SignupUserController extends GetxController {
           email: email,
           password: password,
         );
-        Future.delayed(
-          3.milliseconds,
-          () async {
-            await Get.offNamed(RoutesName.homepageScreen);
-          },
-        );
+
+        // Send verification email to user's email address
+        await auth.currentUser!.sendEmailVerification();
+
+        // Wait for the email to be sent before navigating to homepage
+        await auth.currentUser!.reload();
+        while (!auth.currentUser!.emailVerified) {
+          await Future.delayed(const Duration(seconds: 1));
+          await auth.currentUser?.reload();
+        }
+
+        // Save user data to Firestore if email has been verified
         database.collection('users').doc(auth.currentUser?.uid).set(
           {
             'uid': auth.currentUser?.uid,
@@ -45,6 +51,9 @@ class SignupUserController extends GetxController {
             'email': email,
           },
         );
+
+        // Navigate to homepage
+        await Get.offNamed(RoutesName.homepageScreen);
       }
     } on FirebaseAuthException catch (e) {
       FlutterToastUtil.flutterToast(message: '${e.message}');

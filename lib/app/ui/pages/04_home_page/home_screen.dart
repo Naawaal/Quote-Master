@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quote_master/app/ui/pages/04_home_page/home_anime_container.dart';
 import 'package:quote_master/app/ui/pages/04_home_page/home_top_container.dart';
 
 class HomepageScreen extends StatelessWidget {
@@ -29,6 +30,7 @@ class HomepageScreen extends StatelessWidget {
         child: Column(
           children: const [
             HomeTopContainer(),
+            HomeAnimeContainer(),
           ],
         ),
       ),
