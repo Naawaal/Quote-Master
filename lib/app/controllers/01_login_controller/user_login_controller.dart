@@ -38,6 +38,8 @@ class UserLoginController extends GetxController {
       if (e.code == 'user-not-found') {
         FlutterToastUtil.flutterToast(message: 'User not found');
       }
+    } finally {
+      ShowLoadingUtil.hideLoading(context);
     }
   }
 }

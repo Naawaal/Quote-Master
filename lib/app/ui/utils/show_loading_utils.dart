@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ShowLoadingUtil {
-  static void showLoading(context) {
+  static void showLoading(BuildContext context) {
     showDialog(
       barrierDismissible: false,
       context: context,
@@ -21,5 +22,9 @@ class ShowLoadingUtil {
         );
       },
     );
+  }
+
+  static void hideLoading(BuildContext context) {
+    Get.back();
   }
 }

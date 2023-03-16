@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:quote_master/app/controllers/01_login_controller/user_login_controller.dart';
 import 'package:quote_master/app/ui/global_widgets/textformfiled_widget.dart';
@@ -17,13 +18,10 @@ class LoginFormFiled extends StatelessWidget {
             labelText: "Email ID",
             icon: const Icon(Icons.email_outlined),
             controller: userLoginController.emailController.value,
-            validator: (p0) {
-              if (GetUtils.isEmail(p0!)) {
-                return null;
-              } else {
-                return "Email is invalid";
-              }
-            },
+            validator: MultiValidator([
+              RequiredValidator(errorText: "Required **"),
+              EmailValidator(errorText: "Wrong Email"),
+            ]),
           );
         }),
         const SizedBox(
@@ -34,13 +32,8 @@ class LoginFormFiled extends StatelessWidget {
             labelText: "Password",
             icon: const Icon(Icons.lock_outline),
             controller: userLoginController.passwordController.value,
-            validator: (p0) {
-              if (userLoginController.passwordController.value.text.length >=
-                  6) {
-                return null;
-              }
-              return "Enter valid password";
-            },
+            validator:
+                MinLengthValidator(6, errorText: "Should be at least 6 Digits"),
           );
         }),
         const SizedBox(

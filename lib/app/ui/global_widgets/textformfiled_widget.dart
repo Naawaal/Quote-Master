@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 class TextformfiledWidget extends StatelessWidget {
   final String labelText;
-  @override
   final Widget icon;
   String? Function(String?)? validator;
   final TextEditingController? controller;
@@ -21,6 +20,7 @@ class TextformfiledWidget extends StatelessWidget {
       autocorrect: true,
       controller: controller,
       validator: validator,
+      obscureText: labelText == 'Password' ? true : false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.auto,
